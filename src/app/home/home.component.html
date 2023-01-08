@@ -1,0 +1,174 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <div class="header" >
+    <mat-toolbar >
+      <mat-toolbar-row>
+        <img style="width:200px;height: 150px; margin-top: 4%; " src="/assets/roone-removebg-preview.png">
+        <a href= "/classes" class="space2"></a>
+        <a href="/login" class="space2"> </a>
+        <a href= "/classes" style="color:#17568d;" class="space2"><i class=" fa fa-home" style="color:#17568d; font-size: 30px; "></i>     Home </a>
+        <a (click)="profile()" style="color:#17568d"class="space2"><i class=" fa fa-user" style="color:#17568d; font-size: 30px; "></i>    Profile</a>
+        <a  style="color:#17568d" class="space2" (click)="reg()"  type="submit"><i class=" fa fa-registered" style="color:#17568d; font-size: 25px; "></i>     Employee Register</a>
+      </mat-toolbar-row>
+    
+    </mat-toolbar>
+</div>
+
+<div style="margin-top: 2%;">
+<h1 style="color: rgb(235, 81, 81);text-align: center; font-size:45px ; font-weight: bold" >RO-ONE EMPLOYEES</h1>
+</div>
+<div class="howItWorksWrapper" >
+  <div class="container">
+      
+      <div class="d-flex just-c-s-b">
+          
+          <div class="howItWorks col2">
+              <img src="https://trackobit.com/assets/images/ffm_img/top_Banner.png" alt="" style="width: 90%;height: 50%;">
+              <h4>TAKE ATTENDENCE FOR EMPLOYEES<br> BATCH-1</h4>
+              <p>In Ro-one Office,We take Employees attendence So, <br>
+              Please click here </p>
+            <button class="yes" (click)="classA()">Employees  (batch-1)</button>
+          </div>
+
+          <div class="howItWorks col3">
+             <img src="https://leapmax.ai/wp-content/uploads/2020/09/System-status-using-employee-monitoring-software.png" alt="" style="width: 90%;height: 50%;">
+              <h4>TAKE ATTENDENCE FOR EMPLOYEES <br> BATCH-2</h4>
+              <p>In Ro-one Office,We take Employees attendence So, <br>
+                Please click here</p>
+              <button class="yes" (click)="classB()">Employees  (batch-2)</button>
+            </div>
+
+          <div class="howItWorks col4">
+             <img src="https://www.hivedesk.com/wp-content/uploads/2021/09/homeIllustration-1030x775.png" alt="" style="width: 90%;height: 50%;">
+              <h4>TAKE ATTENDENCE FOR EMPLOYEES <br> BATCH-3</h4>
+              <p>In Ro-one Office,We take Employees attendence So, <br>
+                Please click here</p>
+                <button class="yes" (click)="classC()">Employees  (batch-3)</button>
+            </div>
+
+          <div class="howItWorks col1">
+          <img src="https://leapmax.ai/wp-content/uploads/2020/09/Build-a-culture-of-trust-using-insights-not-oversight.png" alt="" style="width: 90%;height: 50%;">
+            <h4>TAKE ATTENDENCE FOR EMPLOYEES<br> BATCH-4</h4>
+            <p>In Ro-one Office,We take Employees attendence So, <br>
+              Please click here</p>
+              <button class="yes" (click)="classD()">Employees  (batch-4)</button>
+          </div>
+
+      </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="container d-flex just-c-s-b">
+      <div class="col">
+          
+
+        <h3 >About Us</h3>
+          <p style="text-align: justify;">
+            Attendance Management System is a software developed for daily student attendance in schools, 
+            collages andinstitutes. If facilitates to access the attendanceinformation of a particular
+             student in a particularwill be provided
+          </p>
+         
+          <div style="display: flex;">
+             
+            
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                      <img src="data:image/jpeg;base64,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" alt="">
+                  </a>
+                
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                      <img src="https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-logo-instagram-ini-ada-varias-dan-transparan-33.png" alt="">
+                  </a>
+                
+                  <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                      <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="">
+                  </a>
+               
+                  <a href="https://www.instagram.com/accounts/emailsignup/?hl=en" target="_blank" rel="noopener noreferrer">
+                      <img src="data:image/png;base64,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" alt="">
+                  </a>
+              
+            </div>
+          
+      </div>
+      <div class="col">
+          <h3  >Contact Us
+          
+            
+          </h3 >
+          <p>
+        
+             
+            <i class="fa fa-map-marker" style="font-size:18px;color:white">  91, Ram Nagar, Ram Mandir, Delhi</i>
+         
+          </p>
+    <p>
+      <i class="fa fa-phone">    +91-8844884499</i>
+      
+    </p>
+    <p>
+      <i class="fa fa-envelope">   uma@gmail.com </i>
+    </p>
+    
+         
+             
+       
+          
+        </div> 
+           
+        <div class="col">
+          <h3  > Quick Links
+          </h3 >
+          <p>
+            <a  style="color:white;font-size:x-large;" routerLink="/form"  >Login </a>
+          
+         </p>
+         <p>
+          <a  style="color:white;font-size:x-large;" routerLink="/classtwo"  >Sign Up </a>
+        
+       </p>
+              <p>
+                 <a  style="color:white;font-size:x-large;" routerLink="/aboutus"  >  About Us </a>
+              </p>
+              <p>
+              <a  style="color:white;font-size:x-large;" routerLink="/contactus"  >  Contact Us </a>
+              
+             </p>
+            
+       
+          
+        </div>    
+    
+      
+  </div>
+</div>
+  <!-- <table >
+    
+<div style="display: flex; align-self: center;" >
+  <button class="btn" (click)="classA()" >Class A</button>
+</div>
+  <div>
+   <a > <button class="btn" (click)="classB()">Class B</button></a>
+  
+  </div>
+  <div >
+    <a> <button class="btn" (click)="classC()" >Class C</button></a>
+  </div>
+    <div>
+      <a > <button class="btn" (click)="classD()">Class D</button></a>
+    
+    </div>
+ 
+  </table> -->
+  
+ 
+</body>
+
+
+
+
+
+

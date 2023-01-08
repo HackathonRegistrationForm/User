@@ -1,0 +1,183 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>  
+    <div class="header">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <img style="width:190px;height: 190px;margin-top: 1%; margin-left: -20%; " src="/assets/roone-removebg-preview.png">
+          <a href= "#" class="space2"> </a>
+          <a href="#" class="space2"> </a>
+          <a href="#" class="space2"> </a>
+          <a href="#" class="space2"> </a>
+         <a href= "/classes" style="color:#4a88bf;" class="space2"><i class=" fa fa-home" style="color:#4a88bf; font-size: 30px; "></i>         Home </a>
+       
+          <input type="text"  style=" width: 35%; font-size: large; margin-left: -75%;   padding: 1%; border:1px solid #4a88bf; border-radius: 40px;" value="submit" placeholder= "Search for Employees here" [(ngModel)]="searchtext" name="array id" class="form-control">
+        </mat-toolbar-row>
+      </mat-toolbar>
+  </div>
+  <br>
+  <div class="main-top">
+    
+  </div>
+  
+  <h2 style="color:#4a88bf;font-weight:800;font-size:xx-large ;text-align:center">  Take Attendance</h2> 
+  <h1 style="text-align:center;color: #4a88bf; font-weight: 700;">Search by Date: <input class="btstyle"    [(ngModel)]="Studentfilter.date" type="date"><button class="bt" (click)="filterdata()" type="submit">Search</button></h1> 
+  
+        <section class="main" *ngIf="showdetails" >  
+        <div *ngFor="let text of datas | filter : searchtext">           
+        <div class="users">   
+          <div class="card">
+            <img src="{{text.image}}" />
+       <table style="height:50px; padding: 2%" >
+                <tr>
+                <td class="tdstyle"> Class: </td> 
+                <td>{{text.Classlist}}</td>
+              </tr>
+              <tr>
+            <td class="tdstyle">  FirstName:</td>     
+            <td>{{text.firstName}}</td>
+          </tr>       
+        <tr>
+            <td class="tdstyle">  LastName:</td> 
+             <td> {{text.lastName}}</td>
+          </tr>
+   <tr>       
+            <td class="tdstyle"> DOB: </td> 
+             <td> {{text.dob}}</td>
+          </tr>
+         <tr>
+            <td class="tdstyle"> Email: </td>
+             <td>{{text.email}}</td>
+          </tr>
+         <tr>
+            <td class="tdstyle">Mobile No:</td>
+             <td> {{text.PhoneNo}}</td>
+          </tr>
+          <tr>
+            <td class="tdstyle">Gender:</td>
+             <td> {{text.gender}}</td>
+          </tr> 
+        <div >
+          <tr >    
+            <td> <h4  style="color:#107ddb;  font-weight: 700;"> {{text.SAttendence}}</h4></td>
+         </tr>
+           <tr>
+            <td> <h4  style="color:red;  font-weight: 700;"> {{text.AAttendence}}</h4></td>
+          </tr>
+        </div>    
+          <div >
+            <tr>
+             <td ><button [hidden]="text.AAttendence =='Absent' || text.SAttendence == 'Present'||text.date==this.date "  class="true"  (click)="Yes(text)"   >Present</button>      
+              </td>
+              <td ><button [hidden]="text.AAttendence =='Absent' || text.SAttendence == 'Present' ||text.date==this.date"  class="false"  (click)="No(text)"   >Absent</button>         
+              </td>
+          </tr>
+          </div>
+          </table>     
+        </div>
+          </div>
+          </div>
+          <button class="btn2" routerLink="/login" (click)="onsubmit(this.datas)" type="submit">View Record</button> 
+  </section>
+  
+  
+  <section class="main" *ngIf="showdetailsdata" >  
+  
+    <div *ngFor="let text of datefilter | filter : searchtext">           
+    <div class="users">   
+      <div class="card">
+        <img src="{{text.image}}" />
+   <table style="height:50px; padding: 2%" >
+            <tr>
+            <td class="tdstyle"> Class: </td> 
+            <td>{{text.Classlist}}</td>
+          </tr>
+          <tr>
+        <td class="tdstyle">  FirstName:</td>     
+        <td>{{text.firstName}}</td>
+      </tr>       
+    <tr>
+        <td class="tdstyle">  LastName:</td> 
+         <td> {{text.lastName}}</td>
+      </tr>
+     <tr>
+        <td class="tdstyle"> Email: </td>
+         <td>{{text.email}}</td>
+      </tr>
+     <tr>
+        <td class="tdstyle">Mobile No:</td>
+         <td> {{text.PhoneNo}}</td>
+      </tr>
+      <tr>
+        <td class="tdstyle"style="margin-left: -380%">Attendence Date</td>
+         <td> {{text.date}}</td>
+      </tr> 
+    <div >
+      <tr >      
+     </tr>
+       <tr>
+        <td> <h4  style="color:#0ccd39;  font-weight: 700;"> {{text.SAttendence}}</h4></td>
+        <td> <h4  style="color:red;  font-weight: 700;"> {{text.AAttendence}}</h4></td>
+      </tr>
+    </div>    
+      <div >
+        <tr>
+         <td ><button [hidden]="text.AAttendence =='Absent' || text.SAttendence == 'Present'||text.date==this.date "  class="true"  (click)="Yes(text)"   >Present</button>      
+          </td>
+          <td ><button [hidden]="text.AAttendence =='Absent' || text.SAttendence == 'Present' ||text.date==this.date"  class="false"  (click)="No(text)"   >Absent</button>         
+          </td>
+      </tr>
+      </div>
+      </table>    
+  
+    </div>
+      </div>
+      
+      </div>
+     
+  </section>
+  <button *ngIf="showdetailsdata"  class="btn3" (click)="ClassR()" type="submit">Get Class Records</button> 
+  <div class="footer">
+    <div class="container d-flex just-c-s-b">
+        <div class="col">
+      <h3 >About Us</h3>
+            <p style="text-align: justify;">
+              Attendance Management System is a software developed for daily student attendance in schools, 
+              collages andinstitutes. If facilitates to access the attendanceinformation of a particular
+               student in a particularwill be provided
+            </p>   
+        </div>
+        <div class="col">
+            <h3  >Contact Us    
+            </h3 >
+            <p>
+       <i class="fa fa-map-marker" style="font-size:18px;color:white">  91, Ram Nagar, Ram Mandir, Delhi</i>
+            </p>
+      <p>
+        <i class="fa fa-phone">    +91-8844884499</i>  
+      </p>
+      <p>
+        <i class="fa fa-envelope">   uma@gmail.com </i>
+      </p>    
+      </div>      
+          <div class="col">
+            <h3>Quick Links</h3 >
+          <p>
+            <a  style="color:white;font-size:x-large;" routerLink="/form"  >Login </a>
+          </p>
+          <p>
+            <a  style="color:white;font-size:x-large;" routerLink="/classtwo"  >Sign Up </a>        
+          </p>
+                <p>
+                   <a  style="color:white;font-size:x-large;" routerLink="/aboutus"  >  About Us </a>
+                </p>
+                <p>
+                  <a  style="color:white;font-size:x-large;" routerLink="/aboutus"  >  Contact Us </a>              
+               </p>    
+          </div>        
+    </div>
+  </div>
+  </body>
+  
+  
