@@ -14,11 +14,28 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { ViewrecordComponent } from './viewrecord/viewrecord.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { EmployeeformComponent } from './employeeform/employeeform.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AttendenceComponent,
+    ViewrecordComponent,
+    EmployeeformComponent,
+    AboutusComponent,
+    ContactusComponent,
+    SignupComponent,
+    LoginComponent,
+    ProfileComponent,
  
   ],
   imports: [
@@ -32,7 +49,10 @@ import { MatRadioModule } from '@angular/material/radio';
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    FormsModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

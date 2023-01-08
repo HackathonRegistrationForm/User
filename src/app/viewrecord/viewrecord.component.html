@@ -1,0 +1,133 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+  <div class="header" >
+    <mat-toolbar >
+      <mat-toolbar-row>
+        <img style="width:170px;height: 170px; margin-top:10%; margin-left: 5%;" src="/assets/roone-removebg-preview.png">
+        <i class=" fa fa-home" style="color:#4a88bf; font-size: 30px; "><a href= "/classes" style="color:#4a88bf;"class="space2">Home </a></i>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <h1 style="color:#4a88bf;font-size:80px;font-weight:700" class="h1">   Attendence Record </h1>
+  <input type="text" class="search form-control"  value="submit" placeholder= "Search for Employees here" [(ngModel)]="search" name="array id" >
+  <table class="table" style="margin-top:1%;width:50%;margin-left: 1%;">
+              <thead style="font-size:120%">
+              <tr>  
+              <th >Student Name </th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Class</th>
+              <th>Date </th>
+              <th>Attendance</th>
+              <th>Edit</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let text of datas | filter:searchtext  | filter : search | paginate:  { itemsPerPage: 10, currentPage: p } " >  
+                <td>   
+                  <div style="color:#033158;font-weight: 700;  ">{{text.firstName}} {{text.lastName}}</div>
+                  </td>
+                  <td>
+                    <div style="color:#033158;font-weight: 700;">{{text.PhoneNo}}</div>
+                </td>
+                <td>
+                  <div style="color:#033158;font-weight: 700;">{{text.email}}</div>
+              </td>
+              <td>
+                  <div style="color:#033158;font-weight: 700;"> {{text.Classlist}}
+                  </div>
+                  </td>
+                  <td>
+                    <div style="color:#033158;font-weight: 700;">  {{text.date| date: 'dd-MM-yyyy'}}
+                    </div>
+                    </td>      
+             <td> 
+              <div><h4 style="color:#4a88bf;font-weight: 700;" > {{text.SAttendence}}</h4></div>
+            <div><h4 style="color:red;font-weight: 700;" > {{text.AAttendence}}</h4></div>
+      </td> 
+      <td>
+         <h2 (click)="edit(text)"  type="submit"><i class="fa fa-pencil" style="font-size:18px;color:#4a88bf"></i></h2> 
+      </td>
+    </tr>
+        </tbody>
+         <div *ngIf="!editform">
+          <div class="pop-up-drop"></div>
+          <div class="pop-up">
+          <h1 class="h1">EDIT RECORD</h1>       
+           <table class="showForm" border="1">   
+             <p  class="btncancel  float-right" type="submit"  (click)="closeForm()" >&#10006;</p>
+          <tr>
+        <td><label class="label" for="Studentname">firstName</label> </td>
+                  <td><input class="input"  type="text" id="firstname" [(ngModel)]="studentattendence.firstName"  readOnly></td>
+              </tr> 
+              <tr>
+                  <td><label  class="label" for="lastName">Last Name</label> </td>
+                  <td><input class="input" type="text" id="lastName"  [(ngModel)]="studentattendence.lastName" readOnly></td>
+              </tr>  
+              <tr>
+                  <td><label  class="label" for="mobilenumber">Mobile Number</label> </td>
+                  <td><input class="input" type="text" id="PhoneNo"  [(ngModel)]="studentattendence.PhoneNo" readOnly></td>
+              </tr>
+              <tr>
+                <td><label  class="label" for="mobilenumber">Attendence</label> </td>
+                <td><select class="input" id="Attendance"  [(ngModel)]="studentattendence.SAttendence">
+                  <option value="">Select</option>
+                  <option value="Present">Present</option>
+                  <option value="Absent">Absent</option>
+                </select></td>
+          </tr>   
+            <button (click)="save()" style="margin-left: 250%; background-color: white;color: #4a88bf; " type="submit">Save</button>
+  </table> 
+  </div>
+  </div> 
+        <div><button (click)="back()" class="back"> GO Back</button>
+          <pagination-controls 
+          (pageChange)="p = $event" 
+          class="float-right">
+          </pagination-controls>
+        </div>
+  </table>
+  <div class="footer">
+    <div class="container d-flex just-c-s-b">
+        <div class="col">
+          <h3 >About Us</h3>
+            <h5 style="text-align: justify; font-size: large;">
+              Attendance Management System is a software developed for daily student attendance in schools, 
+              collages andinstitutes. If facilitates to access the attendanceinformation of a particular
+               student in a particularwill be provided
+            </h5>
+        </div>
+        <div class="col">
+            <h3  >Contact Us            
+            </h3 >
+            <p>             
+              <i class="fa fa-map-marker" style="font-size:18px;color:white">  91, Ram Nagar, Ram Mandir, Delhi</i>
+            </p>
+      <p>
+        <i class="fa fa-phone" style="font-size:large">    +91-8844884499</i>
+      </p>
+      <p>
+        <i class="fa fa-envelope"style="font-size:large" >   uma@gmail.com </i>
+      </p>    
+          </div>      
+          <div class="col">
+            <h3  > Quick Links
+            </h3 >
+            <p>
+              <a  style="color:white;font-size:x-large;cursor:pointer;text-decoration: none;" routerLink="/form"  >Login </a> 
+           </p>
+           <p>
+            <a  style="color:white;font-size:x-large;cursor:pointer;text-decoration: none;" routerLink="/classtwo"  >Sign Up </a>       
+         </p>
+                <p>
+                   <a  style="color:white;font-size:x-large;cursor:pointer;text-decoration: none;" routerLink="/aboutus"  >  About Us </a>
+                </p>
+                <p>
+                  <a  style="color:white;font-size:x-large;cursor:pointer;text-decoration: none;" routerLink="/contactus"  >  Contact Us </a>  
+               </p>       
+          </div>    
+    </div>
+  </div>
+  </body>

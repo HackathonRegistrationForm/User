@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body background="https://leadschool.in/wp-content/uploads/2022/04/Blog%20Featured%20Images%20(36).png" > 
+    <div class="img">
+    <section class="container" >
+        <a href="/classes"><button class="btn"   type="submit"> Home  <i class=" fa fa-home" style="color: #4a88bf; font-size: medium; "></i> </button></a>
+      <h1>Employee Registration Form</h1>
+      <form [formGroup]="Attendence" (ngSubmit)="AttendenceSubmitted()"  class="form">
+        <div class="input-box">
+            <label> Please Add Your Image Here</label><span class="required"> *</span>
+            <div class="input--file">  
+                <input name="Select File" type="text" name="image" formControlName="image" />
+              </div>
+          </div>
+          <div class="input-box">
+            <label> select Batch here</label><span class="required"> *</span>
+            <select formControlName="Classlist"  class="form-control" >
+                <option value=""></option>
+                <option value="A">Class A</option>
+                <option value="B">Class B</option>
+                <option value="C">Class C</option>
+                <option value="D">Class D</option>
+            </select>
+        </div>
+        <div class="column">
+            <div class="input-box">
+              <label>First Name</label><span class="required"> *</span>
+              <input type="text" placeholder="Enter First Name" formControlName="firstName" required /> 
+          <div class="form-text text-danger" *ngIf="FirstName.errors?.['required']&& (FirstName.touched||FirstName.dirty)">First Name Is Required</div>
+          <div class="form-text text-danger" *ngIf="FirstName.errors?.['pattern']&& (FirstName.dirty||FirstName.touched)">First Name Should Start with Alphabet </div>
+            </div>
+            <div class="input-box">
+              <label>Last Name</label><span class="required"> *</span>
+              <input type="text" placeholder="Enter Last Name" formControlName="lastName" required />   
+          <div class="form-text text-danger" *ngIf="lastname.errors?.['required']&& (lastname.touched||lastname.dirty)">last Name Is Required</div>
+          <div class="form-text text-danger" *ngIf="lastname.errors?.['pattern']&& (lastname.dirty||lastname.touched)">last Name Should Start with Alphabet </div>
+            </div>
+          </div>
+        <div class="input-box">
+          <label>Email Address</label><span class="required"> *</span>
+          <input type="email" placeholder="Enter email address" formControlName="email" required />  
+          <div class="form-text text-danger" *ngIf="email.errors?.['required']&& (email.touched||email.dirty)">Email Is Required</div>
+          <div class="form-text text-danger" *ngIf="email.errors?.['pattern']&& (email.dirty||email.touched)">Email is invalid </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label><span class="required"> *</span>
+            <input type="text" placeholder="Enter phone number" formControlName="PhoneNo" required />  
+            <div class="form-text text-danger" *ngIf="PhoneNo.errors?.['required']&& (PhoneNo.touched||PhoneNo.dirty)"> Number Is Required</div>
+            <div class="form-text text-danger" *ngIf="PhoneNo.errors?.['pattern']&& (PhoneNo.dirty||PhoneNo.touched)">Number is Invalid </div>
+          </div>
+          <div class="input-box">
+            <label> Date Of Birth</label><span class="required"> *</span>
+            <input type="date" placeholder="Enter birth date" formControlName="dob" required />
+          </div>
+        </div>
+        <div class="input-box">
+            <label> Select Your Gender</label><span class="required"> *</span>
+            <select formControlName="gender"  class="form-control" >
+                <option value="">select</option>
+                <option value="Male">Male </option>
+                <option value="Female ">Female </option>   
+            </select>
+        </div>
+        <button type="submit"  (click)="onSubmit()">Submit</button>    
+      </form>
+    </section>
+  </div>
+  </body>
+  
